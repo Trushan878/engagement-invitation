@@ -17,135 +17,59 @@ const musicBtn = document.getElementById("musicBtn");
 
 let opened = false;
 
-
-
-window.openInvitation = function(){
-
-
-if(opened) return;
-
-opened=true;
-
-
-document.querySelector(".flap").style.transform =
-"rotateX(180deg)";
-
-
-document.querySelector(".letter").style.transform =
-"translateY(-130px)";
-
-
-createSparkBurst();
-
-createPetals();
-
-
-setTimeout(function(){
-
-
-document.getElementById("welcome").style.display="none";
-
-
-document.getElementById("card").style.display="flex";
-
-
-setTimeout(function(){
-
-document.getElementById("card").style.opacity="1";
-
-document.getElementById("card").classList.add("card-open");
-
-
-},100);
-
-
-},1800);
-
-
-};
-
-
 function openInvitation(){
 
+    if(opened) return;
 
-if(opened) return;
-
-opened=true;
-
+    opened = true;
 
 
-/* Open envelope */
-
-flap.style.transform =
-"rotateX(180deg)";
-
-
-
-letter.style.transform =
-"translateY(-130px)";
+    const flap = document.querySelector(".flap");
+    const letter = document.querySelector(".letter");
+    const welcome = document.getElementById("welcome");
+    const card = document.getElementById("card");
 
 
-
-letter.style.zIndex="15";
-
-
-
-/* gold burst */
-
-createSparkBurst();
+    // Open envelope
+    flap.style.transform = "rotateX(180deg)";
 
 
-
-/* petals */
-
-createPetals();
+    // Move letter out
+    letter.style.transform = "translateY(-130px)";
 
 
-
-/* music */
-
-music.play().catch(()=>{});
+    // Show invitation
+    setTimeout(()=>{
 
 
-
-setTimeout(()=>{
-
-
-welcome.style.opacity="0";
-
-welcome.style.transition="1s";
+        welcome.style.opacity="0";
 
 
-
-setTimeout(()=>{
-
-
-welcome.style.display="none";
-
-card.style.display="flex";
-
-card.classList.add("card-open");
+        setTimeout(()=>{
 
 
-setTimeout(()=>{
-
-card.style.opacity="1";
+            welcome.style.display="none";
 
 
-},100);
+            card.style.display="flex";
 
 
+            setTimeout(()=>{
 
-},1000);
+                card.style.opacity="1";
+
+                card.classList.add("card-open");
+
+            },100);
 
 
+        },800);
 
-},1800);
 
+    },1500);
 
 
 }
-
 
 
 
