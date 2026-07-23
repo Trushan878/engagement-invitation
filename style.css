@@ -258,3 +258,90 @@ left:15px;
 }
 
 }
+.rings{
+font-size:50px;
+margin-bottom:20px;
+animation:ringGlow 2s infinite alternate;
+}
+
+@keyframes ringGlow{
+
+from{
+transform:scale(1);
+filter:drop-shadow(0 0 5px gold);
+}
+
+to{
+transform:scale(1.15);
+filter:drop-shadow(0 0 25px gold);
+}
+
+}
+
+.subtitle{
+
+font-size:18px;
+letter-spacing:3px;
+color:#8c6b2f;
+margin-bottom:15px;
+
+}
+
+.names{
+
+font-family:'Great Vibes',cursive;
+font-size:80px;
+text-align:center;
+color:#8b0000;
+line-height:1.1;
+
+}
+
+.names span{
+
+display:block;
+font-size:50px;
+color:#d4af37;
+margin:10px 0;
+
+}
+
+.invite{
+
+margin-top:20px;
+font-weight:300;
+letter-spacing:2px;
+text-align:center;
+color:#666;
+margin-bottom:40px;
+
+}
+
+body::before{
+
+content:"🌸 🌺 🌸 🌺 🌸";
+position:absolute;
+top:20px;
+width:100%;
+text-align:center;
+font-size:35px;
+opacity:.35;
+animation:flowers 10s linear infinite;
+
+}
+
+@keyframes flowers{
+
+0%{
+transform:translateX(-40px);
+}
+
+50%{
+transform:translateX(40px);
+}
+
+100%{
+transform:translateX(-40px);
+}
+
+}
