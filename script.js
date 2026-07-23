@@ -265,3 +265,43 @@ createPetals();
 
 
 },7000);
+/* =========================
+   SAVE DATE
+========================= */
+
+
+function saveDate(){
+
+
+let event={
+
+title:"Riya & Trushan Engagement",
+
+start:"20260627T193000",
+
+end:"20260627T220000",
+
+location:"Ahmedabad, Gujarat"
+
+};
+
+
+
+let calendarURL=
+
+"https://calendar.google.com/calendar/render?action=TEMPLATE"
++
+"&text="+encodeURIComponent(event.title)
++
+"&dates="+event.start+"/"+event.end
++
+"&details=Engagement%20Ceremony"
++
+"&location="+encodeURIComponent(event.location);
+
+
+
+window.open(calendarURL,"_blank");
+
+
+}
