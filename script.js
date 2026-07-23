@@ -82,6 +82,8 @@ welcome.style.display="none";
 
 card.style.display="flex";
 
+card.classList.add("card-open");
+
 
 setTimeout(()=>{
 
