@@ -1225,3 +1225,18 @@ z-index:999;
 pointer-events:none;
 
 }
+#openBtn{
+    position:relative;
+    z-index:99999;
+    pointer-events:auto;
+}
+
+#welcome{
+    z-index:100;
+}
+
+.flap,
+.letter,
+.seal{
+    pointer-events:none;
+}
