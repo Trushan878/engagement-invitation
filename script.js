@@ -21,6 +21,11 @@ let opened = false;
 
 openBtn.addEventListener("click", openInvitation);
 
+openBtn.addEventListener("touchstart", function(e){
+    e.preventDefault();
+    openInvitation();
+});
+
 
 
 function openInvitation(){
