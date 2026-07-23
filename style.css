@@ -972,3 +972,39 @@ filter:blur(0);
 
 
 }
+.diya{
+
+font-size:45px;
+
+margin-bottom:15px;
+
+
+animation:
+
+diyaGlow 2s infinite alternate;
+
+}
+
+
+@keyframes diyaGlow{
+
+
+from{
+
+filter:
+
+drop-shadow(0 0 5px gold);
+
+}
+
+
+to{
+
+filter:
+
+drop-shadow(0 0 30px orange);
+
+}
+
+
+}
