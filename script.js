@@ -1,157 +1,267 @@
-const music = document.getElementById("bgMusic");
-const musicBtn = document.getElementById("musicBtn");
+/* =========================
+   ENVELOPE OPENING
+========================= */
 
-let musicPlaying = false;
 
-musicBtn.addEventListener("click", () => {
-
-    if(musicPlaying){
-
-        music.pause();
-
-        musicBtn.innerHTML="🔇";
-
-    }else{
-
-        music.play();
-
-        musicBtn.innerHTML="🔊";
-
-    }
-
-    musicPlaying=!musicPlaying;
-
-});
 const openBtn = document.getElementById("openBtn");
 const envelope = document.getElementById("envelope");
 const flap = document.querySelector(".flap");
 const letter = document.querySelector(".letter");
-const seal = document.querySelector(".seal");
+
 const welcome = document.getElementById("welcome");
 const card = document.getElementById("card");
 
-// ---------- Falling Petals ----------
+const music = document.getElementById("music");
+const musicBtn = document.getElementById("musicBtn");
 
-function createPetal(){
 
-    const petal=document.createElement("div");
+let opened = false;
 
-    petal.className="petal";
 
-    petal.style.left=Math.random()*window.innerWidth+"px";
 
-    petal.style.animationDuration=(5+Math.random()*4)+"s";
+openBtn.addEventListener("click", openInvitation);
 
-    petal.style.opacity=Math.random();
 
-    petal.style.transform=`rotate(${Math.random()*360}deg)`;
 
-    document.body.appendChild(petal);
+function openInvitation(){
 
-    setTimeout(()=>{
 
-        petal.remove();
+if(opened) return;
 
-    },9000);
+opened=true;
+
+
+
+/* Open envelope */
+
+flap.style.transform =
+"rotateX(180deg)";
+
+
+
+letter.style.transform =
+"translateY(-130px)";
+
+
+
+letter.style.zIndex="15";
+
+
+
+/* gold burst */
+
+createSparkBurst();
+
+
+
+/* petals */
+
+createPetals();
+
+
+
+/* music */
+
+music.play().catch(()=>{});
+
+
+
+setTimeout(()=>{
+
+
+welcome.style.opacity="0";
+
+welcome.style.transition="1s";
+
+
+
+setTimeout(()=>{
+
+
+welcome.style.display="none";
+
+card.style.display="flex";
+
+
+setTimeout(()=>{
+
+card.style.opacity="1";
+
+
+},100);
+
+
+
+},1000);
+
+
+
+},1800);
+
+
+
+}
+
+
+
+
+
+/* =========================
+   MUSIC BUTTON
+========================= */
+
+
+let playing=false;
+
+
+musicBtn.addEventListener("click",()=>{
+
+
+if(playing){
+
+music.pause();
+
+musicBtn.innerHTML="🎵";
 
 }
 
-setInterval(createPetal,350);
+else{
 
-// ---------- Gold Sparkles ----------
+music.play();
 
-function burst(){
-
-    for(let i=0;i<70;i++){
-
-        let s=document.createElement("div");
-
-        s.className="spark";
-
-        s.style.left=(window.innerWidth/2)+"px";
-
-        s.style.top=(window.innerHeight/2)+"px";
-
-        s.style.setProperty("--x",(Math.random()*700-350)+"px");
-
-        s.style.setProperty("--y",(Math.random()*700-350)+"px");
-
-        document.body.appendChild(s);
-
-        setTimeout(()=>{
-
-            s.remove();
-
-        },1800);
-
-    }
+musicBtn.innerHTML="🔊";
 
 }
 
-// ---------- Envelope Opening ----------
 
-openBtn.onclick=function(){
-if(!musicPlaying){
+playing=!playing;
 
-    music.play();
 
-    musicBtn.innerHTML="🔊";
+});
 
-    musicPlaying=true;
 
-}
-    openBtn.disabled=true;
 
-    // Remove seal
-    seal.style.transition=".5s";
-    seal.style.transform="translateX(-50%) scale(0)";
-    seal.style.opacity="0";
 
-    // Open flap
-    setTimeout(()=>{
 
-        flap.style.transform="rotateX(-180deg)";
+/* =========================
+   GOLD SPARK BURST
+========================= */
 
-    },500);
 
-    // Pull invitation out
-    setTimeout(()=>{
+function createSparkBurst(){
 
-        letter.style.transform="translateY(-420px) scale(1.08)";
 
-    },1200);
+for(let i=0;i<45;i++){
 
-    // Sparkles
-    setTimeout(()=>{
 
-        burst();
+let spark=document.createElement("div");
 
-    },1600);
 
-    // Fade welcome
-    setTimeout(()=>{
+spark.className="spark";
 
-        welcome.style.transition="1.2s";
-        welcome.style.opacity="0";
 
-    },2600);
+let x=(Math.random()-0.5)*500;
 
-    // Show invitation
-    setTimeout(()=>{
+let y=(Math.random()-0.5)*500;
 
-        welcome.style.display="none";
 
-        card.style.display="flex";
 
-        card.style.opacity="0";
+spark.style.left="50%";
 
-        setTimeout(()=>{
+spark.style.top="50%";
 
-            card.style.transition="1.5s";
-            card.style.opacity="1";
+spark.style.setProperty("--x",x+"px");
 
-        },100);
+spark.style.setProperty("--y",y+"px");
 
-    },3400);
+
+
+document.body.appendChild(spark);
+
+
+
+setTimeout(()=>{
+
+spark.remove();
+
+},1500);
+
+
 
 }
+
+
+}
+
+
+
+
+
+/* =========================
+   FALLING PETALS
+========================= */
+
+
+function createPetals(){
+
+
+for(let i=0;i<80;i++){
+
+
+let petal=document.createElement("div");
+
+
+petal.className="petal";
+
+
+petal.style.left=
+Math.random()*100+"vw";
+
+
+petal.style.animationDuration=
+(3+Math.random()*5)+"s";
+
+
+
+petal.style.opacity=
+Math.random();
+
+
+
+document.body.appendChild(petal);
+
+
+
+setTimeout(()=>{
+
+petal.remove();
+
+},8000);
+
+
+
+}
+
+
+}
+
+
+
+
+
+/* =========================
+   CONTINUOUS PETALS
+========================= */
+
+
+setInterval(()=>{
+
+
+if(card.style.display==="flex"){
+
+createPetals();
+
+}
+
+
+},7000);
