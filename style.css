@@ -1141,3 +1141,35 @@ width:90px;
 
 
 }
+#openBtn{
+
+position:relative;
+
+z-index:9999;
+
+touch-action: manipulation;
+
+}
+
+
+#welcome{
+
+z-index:100;
+
+}
+@media(max-width:600px){
+
+#envelope{
+
+pointer-events:none;
+
+}
+
+
+#openBtn{
+
+pointer-events:auto;
+
+}
+
+}
