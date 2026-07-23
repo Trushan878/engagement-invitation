@@ -850,3 +850,125 @@ transform:scale(.95);
 
 
 }
+/* =========================
+ CINEMATIC REVEAL
+========================= */
+
+
+.reveal-item{
+
+opacity:0;
+
+transform:
+
+translateY(40px)
+scale(.95);
+
+
+}
+
+
+.card-open .reveal-item{
+
+animation:
+
+revealUp 1s forwards;
+
+}
+
+
+
+.card-open .ganesh{
+
+animation-delay:.3s;
+
+}
+
+
+.card-open .invite-title{
+
+animation-delay:1s;
+
+}
+
+
+.card-open .invite-subtitle{
+
+animation-delay:1.5s;
+
+}
+
+
+.card-open .couple{
+
+animation-delay:2.2s;
+
+}
+
+
+.card-open .rings{
+
+animation-delay:3s;
+
+}
+
+
+.card-open .date-row{
+
+animation-delay:3.8s;
+
+}
+
+
+.card-open .venue{
+
+animation-delay:4.5s;
+
+}
+
+
+.card-open .buttons{
+
+animation-delay:5.2s;
+
+}
+
+
+
+
+@keyframes revealUp{
+
+
+from{
+
+opacity:0;
+
+transform:
+
+translateY(50px)
+scale(.9);
+
+
+filter:blur(8px);
+
+
+}
+
+
+to{
+
+opacity:1;
+
+transform:
+
+translateY(0)
+scale(1);
+
+
+filter:blur(0);
+
+
+}
+
+
+}
