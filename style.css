@@ -1,0 +1,260 @@
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+}
+
+body{
+font-family:'Poppins',sans-serif;
+overflow:hidden;
+height:100vh;
+background:linear-gradient(135deg,#fff8f5,#fde8ef,#fffdf7);
+display:flex;
+justify-content:center;
+align-items:center;
+}
+
+/* Welcome Screen */
+
+#welcome{
+position:absolute;
+width:100%;
+height:100%;
+display:flex;
+flex-direction:column;
+justify-content:center;
+align-items:center;
+overflow:hidden;
+}
+
+/* Background Sparkles */
+
+.sparkles{
+position:absolute;
+width:100%;
+height:100%;
+pointer-events:none;
+background:
+radial-gradient(circle,#ffd700 1px,transparent 2px);
+background-size:40px 40px;
+opacity:.3;
+animation:moveStars 15s linear infinite;
+}
+
+@keyframes moveStars{
+from{
+transform:translateY(0);
+}
+to{
+transform:translateY(-200px);
+}
+}
+
+h3{
+font-size:24px;
+letter-spacing:4px;
+color:#b8860b;
+margin-bottom:15px;
+}
+
+h1{
+font-family:'Great Vibes',cursive;
+font-size:70px;
+color:#8B0000;
+text-align:center;
+margin-bottom:50px;
+animation:glow 2s infinite alternate;
+}
+
+h1 span{
+color:#d4004f;
+}
+
+@keyframes glow{
+
+from{
+text-shadow:0 0 10px gold;
+}
+
+to{
+text-shadow:0 0 35px gold;
+}
+
+}
+
+/* Envelope */
+
+#envelope{
+position:relative;
+width:330px;
+height:220px;
+cursor:pointer;
+perspective:1000px;
+}
+
+.back{
+position:absolute;
+width:100%;
+height:100%;
+background:#d4af37;
+border-radius:12px;
+}
+
+.front{
+position:absolute;
+bottom:0;
+width:0;
+height:0;
+border-left:165px solid #b8860b;
+border-right:165px solid #b8860b;
+border-top:110px solid transparent;
+z-index:5;
+}
+
+.flap{
+position:absolute;
+top:0;
+left:0;
+width:0;
+height:0;
+border-left:165px solid transparent;
+border-right:165px solid transparent;
+border-top:115px solid #c99a00;
+transform-origin:top;
+transition:1s;
+z-index:6;
+}
+
+.letter{
+position:absolute;
+left:15px;
+top:15px;
+width:300px;
+height:180px;
+background:white;
+border-radius:10px;
+display:flex;
+justify-content:center;
+align-items:center;
+flex-direction:column;
+transition:1.2s;
+z-index:2;
+box-shadow:0 8px 20px rgba(0,0,0,.2);
+}
+
+.letter h2{
+font-family:'Great Vibes',cursive;
+font-size:42px;
+color:#c0004c;
+}
+
+.letter p{
+margin-top:8px;
+color:#777;
+}
+
+/* Button */
+
+#openBtn{
+
+margin-top:45px;
+padding:15px 45px;
+
+border:none;
+
+border-radius:50px;
+
+background:#c0004c;
+
+color:white;
+
+font-size:20px;
+
+cursor:pointer;
+
+transition:.3s;
+
+box-shadow:0 0 25px rgba(255,0,90,.3);
+
+}
+
+#openBtn:hover{
+
+transform:scale(1.08);
+
+}
+
+/* Invitation */
+
+#card{
+
+position:absolute;
+
+width:100%;
+
+height:100%;
+
+display:none;
+
+justify-content:center;
+
+align-items:center;
+
+background:white;
+
+}
+
+#card img{
+
+width:90%;
+
+max-width:450px;
+
+border-radius:20px;
+
+box-shadow:0 15px 40px rgba(0,0,0,.25);
+
+}
+
+/* Mobile */
+
+@media(max-width:600px){
+
+h1{
+font-size:50px;
+}
+
+#envelope{
+
+width:280px;
+height:190px;
+
+}
+
+.front{
+
+border-left:140px solid #b8860b;
+border-right:140px solid #b8860b;
+border-top:95px solid transparent;
+
+}
+
+.flap{
+
+border-left:140px solid transparent;
+border-right:140px solid transparent;
+border-top:95px solid #c99a00;
+
+}
+
+.letter{
+
+width:250px;
+
+height:160px;
+
+left:15px;
+
+}
+
+}

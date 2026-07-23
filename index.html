@@ -1,244 +1,52 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Engagement Invitation</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Riya & Trushan</title>
 
-<style>
+    <link rel="stylesheet" href="style.css">
 
-*{
-margin:0;
-padding:0;
-box-sizing:border-box;
-font-family:Georgia,serif;
-}
-
-body{
-background:linear-gradient(135deg,#fdf7f6,#fff);
-display:flex;
-justify-content:center;
-align-items:center;
-height:100vh;
-overflow:hidden;
-}
-
-#start{
-position:absolute;
-width:100%;
-height:100%;
-display:flex;
-justify-content:center;
-align-items:center;
-flex-direction:column;
-background:linear-gradient(135deg,#fff8f8,#fdecec);
-z-index:100;
-transition:1s;
-}
-
-.tap{
-margin-top:25px;
-font-size:28px;
-color:#9b1b30;
-animation:blink 1.2s infinite;
-font-weight:bold;
-}
-
-@keyframes blink{
-50%{
-opacity:.4;
-}
-}
-
-.envelope{
-position:relative;
-width:320px;
-height:210px;
-cursor:pointer;
-transition:1s;
-}
-
-.back{
-position:absolute;
-width:100%;
-height:100%;
-background:#d49d48;
-border-radius:8px;
-}
-
-.flap{
-position:absolute;
-top:0;
-left:0;
-width:0;
-height:0;
-border-left:160px solid transparent;
-border-right:160px solid transparent;
-border-top:110px solid #c98724;
-transform-origin:top;
-transition:1s;
-z-index:5;
-}
-
-.front{
-position:absolute;
-bottom:0;
-width:0;
-height:0;
-border-left:160px solid #b57a1c;
-border-right:160px solid #b57a1c;
-border-top:105px solid transparent;
-z-index:6;
-}
-
-.letter{
-position:absolute;
-left:10px;
-top:15px;
-width:300px;
-height:190px;
-background:white;
-border-radius:8px;
-display:flex;
-justify-content:center;
-align-items:center;
-transition:1.4s;
-overflow:hidden;
-z-index:2;
-}
-
-.letter img{
-width:100%;
-height:100%;
-object-fit:cover;
-}
-
-.open .flap{
-transform:rotateX(180deg);
-}
-
-.open .letter{
-transform:translateY(-430px) scale(1.05);
-height:540px;
-width:360px;
-left:-20px;
-}
-
-#card{
-position:absolute;
-display:none;
-justify-content:center;
-align-items:center;
-width:100%;
-height:100%;
-background:white;
-animation:fade 1.2s;
-}
-
-#card img{
-width:95%;
-max-width:420px;
-border-radius:15px;
-box-shadow:0 15px 40px rgba(0,0,0,.25);
-}
-
-@keyframes fade{
-from{
-opacity:0;
-transform:scale(.8);
-}
-to{
-opacity:1;
-transform:scale(1);
-}
-}
-
-.sparkle{
-position:absolute;
-width:8px;
-height:8px;
-background:gold;
-border-radius:50%;
-animation:spark 2s infinite;
-}
-
-@keyframes spark{
-0%{
-transform:translateY(0) scale(0);
-opacity:1;
-}
-100%{
-transform:translateY(-250px) scale(2);
-opacity:0;
-}
-}
-
-</style>
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
 </head>
-
 <body>
 
-<div id="start">
+<div id="welcome">
 
-<div class="envelope" onclick="openInvite()" id="env">
+    <div class="sparkles"></div>
 
-<div class="back"></div>
+    <h3>Engagement Invitation</h3>
 
-<div class="letter">
-<img src="invitation.jpg">
-</div>
+    <h1>Riya <span>❤</span> Trushan</h1>
 
-<div class="flap"></div>
+    <div id="envelope">
 
-<div class="front"></div>
+        <div class="back"></div>
 
-</div>
+        <div class="letter">
+            <h2>Welcome</h2>
+            <p>Tap the Envelope</p>
+        </div>
 
-<div class="tap">💌 Tap To Open 💌</div>
+        <div class="front"></div>
+
+        <div class="flap"></div>
+
+    </div>
+
+    <button id="openBtn">
+        💌 Tap To Open
+    </button>
 
 </div>
 
 <div id="card">
-<img src="invitation.jpg">
+
+    <img src="invitation.jpg">
+
 </div>
 
-<script>
-
-function openInvite(){
-
-document.getElementById("env").classList.add("open");
-
-for(let i=0;i<40;i++){
-
-let s=document.createElement("div");
-
-s.className="sparkle";
-
-s.style.left=Math.random()*window.innerWidth+"px";
-
-s.style.top=Math.random()*window.innerHeight+"px";
-
-document.body.appendChild(s);
-
-setTimeout(()=>{
-
-s.remove();
-
-},2000);
-
-}
-
-setTimeout(()=>{
-
-document.getElementById("start").style.display="none";
-
-document.getElementById("card").style.display="flex";
-
-},2200);
-
-}
-
-</script>
+<script src="script.js"></script>
 
 </body>
 </html>
