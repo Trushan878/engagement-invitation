@@ -44,11 +44,12 @@ function createSparkles() {
 
 openBtn.onclick = () => {
 
-    flap.style.transform = "rotateX(180deg)";
+    flap.style.transform = "rotateX(-180deg)";
 
     setTimeout(() => {
 
-        letter.style.transform = "translateY(-320px) scale(1.08)";
+       letter.style.transform =
+"translateY(-430px) scale(1.1)";
 
     }, 300);
 
