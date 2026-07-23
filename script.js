@@ -1,3 +1,27 @@
+const music = document.getElementById("bgMusic");
+const musicBtn = document.getElementById("musicBtn");
+
+let musicPlaying = false;
+
+musicBtn.addEventListener("click", () => {
+
+    if(musicPlaying){
+
+        music.pause();
+
+        musicBtn.innerHTML="🔇";
+
+    }else{
+
+        music.play();
+
+        musicBtn.innerHTML="🔊";
+
+    }
+
+    musicPlaying=!musicPlaying;
+
+});
 const openBtn = document.getElementById("openBtn");
 const envelope = document.getElementById("envelope");
 const flap = document.querySelector(".flap");
