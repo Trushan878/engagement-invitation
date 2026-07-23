@@ -1,8 +1,27 @@
 let opened = false;
 
-function openInvitation(){
+document.addEventListener("DOMContentLoaded", function(){
 
-    console.log("Button clicked");
+    const openBtn = document.getElementById("openBtn");
+
+    if(openBtn){
+
+        openBtn.addEventListener("click", openInvitation);
+
+        openBtn.addEventListener("touchend", function(e){
+
+            e.preventDefault();
+
+            openInvitation();
+
+        });
+
+    }
+
+});
+
+
+function openInvitation(){
 
 
     if(opened) return;
@@ -16,32 +35,61 @@ function openInvitation(){
     const card = document.getElementById("card");
 
 
+    // Envelope animation
+
     if(flap){
-        flap.style.transform = "rotateX(180deg)";
+
+        flap.style.transform="rotateX(180deg)";
+
     }
 
 
     if(letter){
-        letter.style.transform = "translateY(-130px)";
+
+        letter.style.transform="translateY(-130px)";
+
     }
+
 
 
     setTimeout(function(){
 
 
-        welcome.style.display = "none";
+        if(welcome){
 
+            welcome.style.opacity="0";
 
-        card.style.display = "flex";
+        }
 
 
         setTimeout(function(){
 
-            card.style.opacity = "1";
 
-        },100);
+            if(welcome){
+
+                welcome.style.display="none";
+
+            }
+
+
+            if(card){
+
+                card.style.display="flex";
+
+
+                setTimeout(()=>{
+
+                    card.style.opacity="1";
+
+                },100);
+
+            }
+
+
+        },800);
 
 
     },1500);
+
 
 }
