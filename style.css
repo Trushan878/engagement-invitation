@@ -843,3 +843,58 @@ background:#fff;
 transform:scale(.95);
 
 }
+.invitation>*{
+    opacity:0;
+    transform:translateY(30px);
+    animation:fadeUp .8s forwards;
+}
+
+.ganesh{
+    animation-delay:.3s;
+}
+
+.invite-title{
+    animation-delay:1s;
+}
+
+.invite-subtitle{
+    animation-delay:1.6s;
+}
+
+.couple{
+    animation-delay:2.2s;
+}
+
+.rings{
+    animation-delay:3s;
+}
+
+.date-row{
+    animation-delay:3.7s;
+}
+
+.venue{
+    animation-delay:4.5s;
+}
+
+.gold-divider{
+    animation-delay:5.2s;
+}
+
+.buttons{
+    animation-delay:5.8s;
+}
+
+@keyframes fadeUp{
+
+from{
+opacity:0;
+transform:translateY(35px);
+}
+
+to{
+opacity:1;
+transform:translateY(0);
+}
+
+}
