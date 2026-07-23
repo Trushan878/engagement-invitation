@@ -5,15 +5,17 @@ box-sizing:border-box;
 }
 
 body{
+    font-family:'Poppins',sans-serif;
+    height:100vh;
+    overflow:hidden;
+    display:flex;
+    justify-content:center;
+    align-items:center;
 
-font-family:'Poppins',sans-serif;
-background:linear-gradient(135deg,#fffaf5,#fff2e8,#fffaf5);
-height:100vh;
-overflow:hidden;
-display:flex;
-justify-content:center;
-align-items:center;
+    background:
+    radial-gradient(circle at top,#fff8e7,#fde9ef 40%,#fffdf9 100%);
 
+    position:relative;
 }
 
 /* Background */
