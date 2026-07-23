@@ -19,13 +19,50 @@ let opened = false;
 
 
 
-openBtn.addEventListener("click", openInvitation);
+window.openInvitation = function(){
 
-openBtn.addEventListener("touchstart", function(e){
-    e.preventDefault();
-    openInvitation();
-});
 
+if(opened) return;
+
+opened=true;
+
+
+document.querySelector(".flap").style.transform =
+"rotateX(180deg)";
+
+
+document.querySelector(".letter").style.transform =
+"translateY(-130px)";
+
+
+createSparkBurst();
+
+createPetals();
+
+
+setTimeout(function(){
+
+
+document.getElementById("welcome").style.display="none";
+
+
+document.getElementById("card").style.display="flex";
+
+
+setTimeout(function(){
+
+document.getElementById("card").style.opacity="1";
+
+document.getElementById("card").classList.add("card-open");
+
+
+},100);
+
+
+},1800);
+
+
+};
 
 
 function openInvitation(){
