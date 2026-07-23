@@ -91,7 +91,15 @@ function burst(){
 // ---------- Envelope Opening ----------
 
 openBtn.onclick=function(){
+if(!musicPlaying){
 
+    music.play();
+
+    musicBtn.innerHTML="🔊";
+
+    musicPlaying=true;
+
+}
     openBtn.disabled=true;
 
     // Remove seal
